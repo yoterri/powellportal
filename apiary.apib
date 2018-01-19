@@ -1,0 +1,594 @@
+FORMAT: 1A
+HOST: https://powell-portal.loc/
+
+# Powell Portal
+
+Powell Portal REST API.
+
+## Authorization Token [/Api/1/Token]
+
+### Get JWT Token [GET /Api/1/Token?login={credentials}]
+
++ Parameters
+    + credentials (string) - User login and pass - md5(username:restrealm:password), restrealm in config/rest.php
+ 
++ Response 200 (application/json)   
+
+        {
+            "token": "eyJ0eXAiOiJGSJ3eDgbGciOiJIUzI1NiJ9.IjE3Ig.z0rpkM0lHLpbsd9q-r8vqa57t63nqSgEhD9ZVduBWQ"
+        }
+        
+
+## Job Collection [/Api/1/Job]
+
+### Get All Jobs [GET]
+
++ Request (text/plain)
+    + Headers
+
+            Authorization: Bearer token
+
++ Response 200 (application/json) 
+
+        [
+            {
+            "id": "13",
+            "job_date": "2017-11-23",
+            "created_at": "2017-11-16",
+            "job_type": "1",
+            "job_status": "2",
+            "p_tech": "15",
+            "o_tech": "13,14",
+            "arrival_time": "17:47:00",
+            "finish_time": "20:47:00",
+            "customer_id": "7",
+            "instructions": null,
+            "recomendations": "",
+            "special_notes": "zxcvzxcv",
+            "call_reasons": "zxcvzxcv",
+            "job_num": "3",
+            "tech_fname": "techician3",
+            "tech_lname": "techician3",
+            "customer_first_name": "asdfasdf111",
+            "customer_last_name": "asdfasdf111",
+            "site_address1": "sdfgsdfg sd",
+            "site_address2": "sdfgsdfg",
+            "site_city": "sdfgsdfgs",
+            "site_state": "fg",
+            "site_zip": "42342",
+            "customer_phone": "232332232323",
+            "customer_cell": "23423423",
+            "status_text": "Sheduled",
+            "status_id": "2",
+            "status_type": "danger"
+            },
+            {
+            "id": "12",
+            "job_date": "2017-11-23",
+            "created_at": "2017-10-22",
+            "job_type": "2",
+            "job_status": "2",
+            "p_tech": "13",
+            "o_tech": "14",
+            "arrival_time": "16:25:00",
+            "finish_time": "18:25:00",
+            "customer_id": "7",
+            "instructions": null,
+            "recomendations": "",
+            "special_notes": "gdfsg",
+            "call_reasons": "dsfgsdfg",
+            "job_num": "1",
+            "tech_fname": "gfhdf",
+            "tech_lname": "sdffasd",
+            "customer_first_name": "asdfasdf111",
+            "customer_last_name": "asdfasdf111",
+            "site_address1": "sdfgsdfg sd",
+            "site_address2": "sdfgsdfg",
+            "site_city": "sdfgsdfgs",
+            "site_state": "fg",
+            "site_zip": "42342",
+            "customer_phone": "232332232323",
+            "customer_cell": "23423423",
+            "status_text": "Sheduled",
+            "status_id": "2",
+            "status_type": "danger"
+            },
+            {
+            "id": "11",
+            "job_date": "2017-11-23",
+            "created_at": "2017-10-21",
+            "job_type": "3",
+            "job_status": "1",
+            "p_tech": "13",
+            "o_tech": "13",
+            "arrival_time": "03:00:00",
+            "finish_time": "03:00:00",
+            "customer_id": "10",
+            "instructions": null,
+            "recomendations": "",
+            "special_notes": "",
+            "call_reasons": "",
+            "job_num": "1",
+            "tech_fname": "gfhdf",
+            "tech_lname": "sdffasd",
+            "customer_first_name": "dfsdfadf",
+            "customer_last_name": "dfsdfadf",
+            "site_address1": "dfsadfasdfasd",
+            "site_address2": "",
+            "site_city": "sdfsadfa",
+            "site_state": "df",
+            "site_zip": "343423",
+            "customer_phone": "",
+            "customer_cell": "",
+            "status_text": "Pending Payment",
+            "status_id": "1",
+            "status_type": "success"
+            }
+        ]
+
+### Get Job [GET /Api/1/Job/{job_id}]
++ Parameters
+    + job_id (integer) - ID of the Job *required integer
+    
++ Request (text/plain)
+    + Headers
+
+            Authorization: Bearer token    
+
++ Response 200 (application/json)    
+
+        {
+            "job_sheet": {
+                "id": "12",
+                "job_date": "2017-11-23",
+                "created_at": "2017-10-22",
+                "job_type": "2",
+                "job_status": "2",
+                "p_tech": "13",
+                "o_tech": "14",
+                "arrival_time": "16:25:00",
+                "finish_time": "18:25:00",
+                "customer_id": "7",
+                "instructions": null,
+                "recomendations": "",
+                "special_notes": "gdfsg",
+                "call_reasons": "dsfgsdfg",
+                "job_num": "1",
+                "sticker": "0",
+                "serv_tag": "0",
+                "leaks": "0",
+                "kitchen": "0",
+                "bypass": "0",
+                "dirty_water": "0",
+                "chlor": "0",
+                "sa_sold_ni": "0",
+                "bpc": "0",
+                "call_office": "0"
+            },
+            "job_labors": [
+                {
+                    "id": "93",
+                    "work_name": "dfg sdf gsdsdf gsd",
+                    "tax": "15",
+                    "discount": "0",
+                    "price": "326",
+                    "deduction": "0",
+                    "job_id": "12",
+                    "subtotal": "374.90"
+                },
+                {
+                    "id": "94",
+                    "work_name": "dsadfa",
+                    "tax": "6",
+                    "discount": "0",
+                    "price": "123",
+                    "deduction": "0",
+                    "job_id": "12",
+                    "subtotal": "130.38"
+                }
+            ],
+            "job_materials": [
+                {
+                    "id": "116",
+                    "material_id": "6",
+                    "price": "123.34",
+                    "quantity": "1",
+                    "discount": "0",
+                    "deduction": "0",
+                    "job_id": "12",
+                    "product_name": "werwerwer",
+                    "subtotal": "123.33"
+                },
+                {
+                    "id": "117",
+                    "material_id": "6",
+                    "price": "123.34",
+                    "quantity": "1",
+                    "discount": "0",
+                    "deduction": "0",
+                    "job_id": "12",
+                    "product_name": "werwerwer",
+                    "subtotal": "123.33"
+                }
+            ],
+            "job_eq_changes": null,
+            "job_customer": {
+                "customer_id": "7",
+                "user_id": "1",
+                "first_name": "asdfasdf111",
+                "last_name": "asdfasdf111",
+                "phone": "232332232323",
+                "cell": "23423423",
+                "email": "fgdsf@gffds.gfds",
+                "billing_address1": "sdfgsdfg sdsdfsd fsdf ",
+                "billing_address2": "sdfgsdfgasdf sa",
+                "billing_city": "sdfgsdfgs",
+                "billing_state": "gh",
+                "billing_zip": "55555",
+                "site_address1": "sdfgsdfg sd",
+                "site_address2": "sdfgsdfg",
+                "site_city": "sdfgsdfgs",
+                "site_state": "fg",
+                "site_zip": "42342",
+                "notes": "fdg sdf gsdf gsdf gsdf gsdf gsdf gsd",
+                "status": "1",
+                "files": "",
+                "proposals": "",
+                "pca": "1",
+                "pca_exp_date": "1970-01-01",
+                "clone_add_date": "1",
+                "id": "5",
+                "location": "fgsd",
+                "tank": "dsfgsd",
+                "pump": "",
+                "conditioning": "",
+                "filter": "",
+                "serviced": "",
+                "model": "sdfg sdf g",
+                "bulb": "fgs",
+                "filter_type": "sdfg",
+                "other": "asdfas",
+                "contract_exp": "sfdg",
+                "bpc": "sdfg",
+                "add_fname": "",
+                "add_lname": "",
+                "add_email": "",
+                "add_phone": ""
+            },
+            "job_technicians": [
+                {
+                    "username": "ererdfdfgs",
+                    "user_id": "13",
+                    "first_name": "gfhdf",
+                    "last_name": "sdffasd",
+                    "phone_number": "234234234",
+                    "email": "sdfs@fgsfd.ghdf"
+                },
+                {
+                    "username": "apitest1234",
+                    "user_id": "14",
+                    "first_name": "Tech 1",
+                    "last_name": "Tech 1",
+                    "phone_number": "",
+                    "email": "dfsdf@gfds.fgds"
+                }
+            ],
+            "job_status": {
+                "id": "2",
+                "status_text": "Sheduled"
+            },
+            "job_type": {
+                "id": "2",
+                "type_text": "Type 2",
+                "type_code": "type_2"
+            }
+        }
+ 
+## Customer Collection [/Api/1/Customer]
+
+### Get All Customers [GET]
+
++ Request (text/plain)
+    + Headers
+
+            Authorization: Bearer token
+            
++ Response 200 (application/json)
+
+        [
+            {
+                "customer_id": "5",
+                "user_id": "1",
+                "first_name": "asdfasdf",
+                "last_name": "asdfasdf",
+                "phone": "3432423",
+                "cell": "fdgdfg",
+                "email": "sdfg@gfdsf.ghfs",
+                "billing_address1": "dfgsdf gsdf g",
+                "billing_address2": "sdfgsdf",
+                "billing_city": "sdfgsdf",
+                "billing_state": "df",
+                "billing_zip": "23243",
+                "site_address1": "dfgsdf gsdf g",
+                "site_address2": "sdfgsdf",
+                "site_city": "sdfgsdf",
+                "site_state": "df",
+                "site_zip": "23243",
+                "notes": "",
+                "status": "2",
+                "files": "",
+                "proposals": "",
+                "pca": "1",
+                "pca_exp_date": "2017-11-30",
+                "clone_add_date": null
+            },
+            {
+                "customer_id": "6",
+                "user_id": "1",
+                "first_name": "asdfasdf",
+                "last_name": "asdfasdf",
+                "phone": "234234",
+                "cell": "23423423",
+                "email": "fgdsf@gffds.gfds",
+                "billing_address1": "sdfgsdfg sd",
+                "billing_address2": "sdfgsdfg",
+                "billing_city": "sdfgsdfgs",
+                "billing_state": "fg",
+                "billing_zip": "42342",
+                "site_address1": "sdfgsdfg sd",
+                "site_address2": "sdfgsdfg",
+                "site_city": "sdfgsdfgs",
+                "site_state": "fg",
+                "site_zip": "42342",
+                "notes": "sdfg sdfg sdfg sdfg sdf gsdf gsdfg sdfg sdf sg",
+                "status": "1",
+                "files": "",
+                "proposals": "",
+                "pca": "1",
+                "pca_exp_date": "2017-10-25",
+                "clone_add_date": "1"
+            }
+        ]
+
+### Get Customer [GET /Api/1/Customer/{customer_id}]
++ Parameters
+    + customer_id (integer) - ID of the Customer required integer
+
++ Request (text/plain)
+    + Headers
+
+            Authorization: Bearer token
+            
++ Response 200 (application/json)    
+
+        {
+            "customer_id": "6",
+            "user_id": "1",
+            "first_name": "asdfasdf",
+            "last_name": "asdfasdf",
+            "phone": "234234",
+            "cell": "23423423",
+            "email": "fgdsf@gffds.gfds",
+            "billing_address1": "sdfgsdfg sd",
+            "billing_address2": "sdfgsdfg",
+            "billing_city": "sdfgsdfgs",
+            "billing_state": "fg",
+            "billing_zip": "42342",
+            "site_address1": "sdfgsdfg sd",
+            "site_address2": "sdfgsdfg",
+            "site_city": "sdfgsdfgs",
+            "site_state": "fg",
+            "site_zip": "42342",
+            "notes": "sdfg sdfg sdfg sdfg sdf gsdf gsdfg sdfg sdf sg",
+            "status": "1",
+            "files": "",
+            "proposals": "",
+            "pca": "1",
+            "pca_exp_date": "2017-10-25",
+            "clone_add_date": "1",
+            "id": "4",
+            "location": "",
+            "tank": "",
+            "pump": "",
+            "conditioning": "",
+            "filter": "",
+            "serviced": "",
+            "model": "sdfg sdf g",
+            "bulb": "sdf gsdf gsdfg sd",
+            "filter_type": "",
+            "other": "",
+            "contract_exp": "",
+            "bpc": "",
+            "add_fname": "",
+            "add_lname": "",
+            "add_email": "",
+            "add_phone": ""
+        }
+
+## Materials Collection [/Api/1/Materials]
+
+### Get All Materials [GET]
+
++ Request (text/plain)
+    + Headers
+
+            Authorization: Bearer token
+            
++ Response 200 (application/json)
+
+        [
+            {
+                "id": "5",
+                "product_name": "asdfasdfs",
+                "model": "adfsadf",
+                "description": "fgsdfgdsfsdfg",
+                "price": "342.54"
+            },
+            {
+                "id": "6",
+                "product_name": "werwerwer",
+                "model": "werwer",
+                "description": "",
+                "price": "123.34"
+            },
+            {
+                "id": "7",
+                "product_name": "dfghfg dfg h dfgh",
+                "model": "fdghdfgh",
+                "description": "fgh fghdfg dfg hdfghdf gh dfghd f",
+                "price": "453.53"
+            }
+        ]
+
+### Get Material [GET /Api/1/Materials/{material_id}]
+
++ Parameters
+    + material_id (integer) - ID of the Material required integer
+
++ Request (text/plain)
+    + Headers
+
+            Authorization: Bearer token
+            
++ Response 200 (application/json)    
+
+        {
+            "customer_id": "6",
+            "user_id": "1",
+            "first_name": "asdfasdf",
+            "last_name": "asdfasdf",
+            "phone": "234234",
+            "cell": "23423423",
+            "email": "fgdsf@gffds.gfds",
+            "billing_address1": "sdfgsdfg sd",
+            "billing_address2": "sdfgsdfg",
+            "billing_city": "sdfgsdfgs",
+            "billing_state": "fg",
+            "billing_zip": "42342",
+            "site_address1": "sdfgsdfg sd",
+            "site_address2": "sdfgsdfg",
+            "site_city": "sdfgsdfgs",
+            "site_state": "fg",
+            "site_zip": "42342",
+            "notes": "sdfg sdfg sdfg sdfg sdf gsdf gsdfg sdfg sdf sg",
+            "status": "1",
+            "files": "",
+            "proposals": "",
+            "pca": "1",
+            "pca_exp_date": "2017-10-25",
+            "clone_add_date": "1",
+            "id": "4",
+            "location": "",
+            "tank": "",
+            "pump": "",
+            "conditioning": "",
+            "filter": "",
+            "serviced": "",
+            "model": "sdfg sdf g",
+            "bulb": "sdf gsdf gsdfg sd",
+            "filter_type": "",
+            "other": "",
+            "contract_exp": "",
+            "bpc": "",
+            "add_fname": "",
+            "add_lname": "",
+            "add_email": "",
+            "add_phone": ""
+        }
+        
+## Technicians Collection [/Api/1/Technicians]      
+
+### Get All Technicians [GET]
+
++ Request (text/plain)
+    + Headers
+
+            Authorization: Bearer token
+            
++ Response 200 (application/json)
+
+        [
+            {
+                "username": "ererdfdfgs",
+                "user_id": "13",
+                "first_name": "gfhdf",
+                "last_name": "sdffasd",
+                "phone_number": "234234234",
+                "email": "sdfs@fgsfd.ghdf"
+            },
+            {
+                "username": "apitest1234",
+                "user_id": "14",
+                "first_name": "Tech 1",
+                "last_name": "Tech 1",
+                "phone_number": "",
+                "email": "dfsdf@gfds.fgds"
+            },
+            {
+                "username": "techician3",
+                "user_id": "15",
+                "first_name": "techician3",
+                "last_name": "techician3",
+                "phone_number": "",
+                "email": "dasfsa@gdfhd.fdgs"
+            }
+        ]
+
+### Get Technician [GET /Api/1/Technicians/{technician_id}]
+
+Get one tehcnician, (user_id same as technician_id)
+
++ Parameters
+    + technician_id (integer) - ID of the Technician required integer
+
++ Request (text/plain)
+    + Headers
+
+            Authorization: Bearer token
+            
++ Response 200 (application/json)    
+
+        [
+            {
+                "username": "ererdfdfgs",
+                "user_id": "13",
+                "first_name": "gfhdf",
+                "last_name": "sdffasd",
+                "phone_number": "234234234",
+                "email": "sdfs@fgsfd.ghdf"
+            }
+        ]
+        
+## Stops Collection [/Api/1/Stops]         
+
+### Add Stop [POST] 
+
+    + Params
+    + time_start (timestamp) - Timestamp when technician start stop required 
+    + time_end (timestamp) - Timestamp when technician end stop required
+    + tech (integer) - ID of the Technician required integer
+    + type (string) - Type of stop
+    + notes (string) - Notes 
+
++ Request (application/json)
+    
+    + Headers
+
+                Authorization: Bearer token
+            
+    + Body
+
+            {
+                "time_start": "1511445420",
+                "time_end": "1511446800",
+                "tech": 13,
+                "type": "Lanch",
+                "notes": "Eat fat big burger"
+            }
+
++ Response 201 (application/json)
+
+        {
+            "result": true,
+            "message": "Stop successfully added"
+        }
