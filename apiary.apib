@@ -567,6 +567,55 @@ Powell Portal REST API.
         }
 
 
+### Get Files [GET /Api/1/Customer/services_history/{customer_id}]
++ Parameters
+    + customer_id: 1 (integer) - ID of the Customer
+
++ Request (text/plain)
+    + Headers
+
+            Authorization: Bearer token
+            
++ Response 200 (application/json)    
+
+        [
+            {
+                "id": "10",
+                "job_date": "2017-12-22",
+                "created_at": "2017-11-20",
+                "job_type": "5",
+                "job_status": "5",
+                "p_tech": "13",
+                "o_tech": "15,17",
+                "arrival_time": null,
+                "finish_time": null,
+                "customer_id": "4",
+                "instructions": null,
+                "recomendations": "bxcxvbcxv",
+                "special_notes": "cvbcv",
+                "call_reasons": "cvbcxv",
+                "job_num": "4",
+                "status_text": "Pending"
+            },
+            {
+                "id": "11",
+                "job_date": "2017-12-22",
+                "created_at": "2017-11-20",
+                "job_type": "2",
+                "job_status": "1",
+                "p_tech": "13",
+                "o_tech": "15,18",
+                "arrival_time": "17:24:00",
+                "finish_time": "20:24:00",
+                "customer_id": "4",
+                "instructions": null,
+                "recomendations": "Test",
+                "special_notes": "There are like 5 different things that should go here.",
+                "call_reasons": "Home was flooded. Test",
+                "job_num": "3",
+                "status_text": "Pending Payment"
+            }
+        ]
 
 
 ### Get Files [GET /Api/1/Customer/files/{customer_id}]
