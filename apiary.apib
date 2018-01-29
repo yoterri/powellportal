@@ -515,7 +515,7 @@ Powell Portal REST API.
 
 
 
-### Get Files per Customer [GET /Api/1/Customer/files/{customer_id}]
+### Get Files [GET /Api/1/Customer/files/{customer_id}]
 + Parameters
     + customer_id: 1 (integer) - ID of the Customer
 
@@ -541,8 +541,29 @@ Powell Portal REST API.
 
 
 
+### Get Notes [GET /Api/1/Customer/notes/{customer_id}]
++ Parameters
+    + customer_id: 1 (integer) - ID of the Customer
 
++ Request (text/plain)
+    + Headers
 
+            Authorization: Bearer token
+            
++ Response 200 (application/json)    
+
+        [
+            {
+                "id": "5",
+                "date": "2017-11-29",
+                "note": "Here is a bunch of notes."
+            },
+            {
+                "id": "6",
+                "date": "2017-11-29",
+                "note": "Here is a bunch of notes."
+            }
+        ]
 
 
 
