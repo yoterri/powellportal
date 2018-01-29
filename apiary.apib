@@ -21,6 +21,60 @@ Powell Portal REST API.
 
 ## Job Collection [/Api/1/Job]
 
+
+### Get Job services [GET /Api/1/Job/services]
+
++ Request (text/plain)
+    + Headers
+
+            Authorization: Bearer token
+            
++ Response 200 (application/json)    
+
+        [
+            {
+                "id": "sticker",
+                "title": "Sticker"
+            },
+            {
+                "id": "serv_tag",
+                "title": "Serv. Tag"
+            },
+            {
+                "id": "leaks",
+                "title": "Check for Leaks"
+            },
+            {
+                "id": "kitchen",
+                "title": "Check Flow at Kitchen"
+            },
+            {
+                "id": "bypass",
+                "title": "Bypass Open/Shut"
+            },
+            {
+                "id": "dirty_water",
+                "title": "Exp Dirty water & c/f rep"
+            },
+            {
+                "id": "chlor",
+                "title": "Chlor Inst"
+            },
+            {
+                "id": "sa_sold_ni",
+                "title": "S.A. sold/N.I."
+            },
+            {
+                "id": "bpc",
+                "title": "BPC Y/N/N.I."
+            },
+            {
+                "id": "call_office",
+                "title": "Call Office"
+            }
+        ]
+
+
 ### Get All Jobs [GET]
 
 + Request (text/plain)
