@@ -512,6 +512,42 @@ Powell Portal REST API.
             "add_phone": ""
         }
 
+
+
+
+### Get Files per Customer [GET /Api/1/Customer/files/{customer_id}]
++ Parameters
+    + customer_id: 1 (integer) - ID of the Customer
+
++ Request (text/plain)
+    + Headers
+
+            Authorization: Bearer token
+            
++ Response 200 (application/json)    
+
+        [
+            {
+                "id": "14",
+                "type": "Customer Files",
+                "filename": "281475025206176_c7da_2017-12-07.pdf"
+            },
+            {
+                "id": "15",
+                "type": "Customer Files",
+                "filename": "assignment_2017-12-07.pdf"
+            }
+        ]
+
+
+
+
+
+
+
+
+
+
 ## Materials Collection [/Api/1/Materials]
 
 ### Get All Materials [GET]
