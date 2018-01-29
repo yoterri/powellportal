@@ -356,15 +356,15 @@ Powell Portal REST API.
     + finish_time (string, optional) - time in the format hh:mm
     + special_notes (string, optional) - Special Order Notes
     + materials (array, optional)
-        + deduction (number)
-        + discount (number)
+        + deduction (float)
+        + discount (float)
         + material_id (number)
         + quantity (number)
         + price (float)
 
     + labors (array, optional)
-        + deduction (number)
-        + discount (number)
+        + deduction (float)
+        + discount (float)
         + tax (number)
         + price (float)
         + work_completed (string)
@@ -390,30 +390,30 @@ Powell Portal REST API.
                 "special_notes": "lorem ipsum dolor",
                 "materials": [
                     {
-                        "deduction": 1,
-                        "discount": 1,
+                        "deduction": 1.10,
+                        "discount": 1.10,
                         "material_id": 1,
                         "quantity": 1,
                         "price": 100.20
                     },
                     {
-                        "deduction": 1,
-                        "discount": 1,
+                        "deduction": 1.10,
+                        "discount": 1.10,
                         "material_id": 2,
                         "price": 100.20
                     }
                 ],
                 "labors": [
                     {
-                        "deduction": 1,
-                        "discount": 1,
+                        "deduction": 1.00,
+                        "discount": 1.10,
                         "tax": 1,
                         "price": 100.20,
                         "work_completed": "lorem ipsum dolor"
                     },
                     {
-                        "deduction": 1,
-                        "discount": 1,
+                        "deduction": 1.10,
+                        "discount": 1.00,
                         "tax": 1,
                         "price": 100.20,
                         "work_completed": "lorem ipsum dolor"
@@ -641,6 +641,33 @@ Powell Portal REST API.
                 "filename": "assignment_2017-12-07.pdf"
             }
         ]
+
+### Get Notes from completed jobs [GET /Api/1/Customer/services_notes/{customer_id}]
++ Parameters
+    + customer_id: 1 (integer) - ID of the Customer
+
++ Request (text/plain)
+    + Headers
+
+            Authorization: Bearer token
+            
++ Response 200 (application/json)    
+
+        [
+            {
+                "job_id": "11",
+                "date": "2017-12-22",
+                "notes": "Lorem ipsum dolor",
+                "recommendations": "Lorem ipsum dolor"
+            },
+            {
+                "job_id": "10",
+                "date": "2017-12-10",
+                "notes": "There are like 5 different things that should go here.",
+                "recommendations": "Test"
+            }
+        ]
+
 
 
 
