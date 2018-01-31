@@ -432,16 +432,48 @@ Powell Portal REST API.
 
 
 
+### Quick add job [POST /Api/1/Job/quick_add_job]
 
+    + Params
 
+    + customer_id (number) - The customr id
+    + job_status (number) - Job status id
+    + job_type (number) - Job type id
+    + arrival_time (string, optional) - time in the format hh:mm
+    + finish_time (string, optional) - time in the format hh:mm
+    + call_reasons (string, optional) - the reason for the call
+    + work_done (string, optional) - Work Done
+    + special_notes (string, optional) - Special Order Notes
+    + p_tech (number, optional) - technician id
 
++ Request (application/json)
+    
+    + Headers
 
+                Authorization: Bearer token
+            
+    + Body
 
+            {
+                "customer_id": 1,
+                "job_status": 1,
+                "job_type": 1,
+                "arrival_time": "08:10",
+                "finish_time": "14:30",
+                "p_tech": 1,
+                "call_reasons": "lorem ipsum dolor",
+                "work_done": "lorem ipsum dolor",
+                "special_notes": "lorem ipsum dolor"
+            }
 
++ Response 201 (application/json)
 
-
-
-
+        {
+            "status": true,
+            "data": {
+                "id": 44
+            }
+        }
 
 
  
