@@ -355,6 +355,10 @@ Powell Portal REST API.
     + arrival_time (string, optional) - time in the format hh:mm
     + finish_time (string, optional) - time in the format hh:mm
     + special_notes (string, optional) - Special Order Notes
+    + call_reasons  (string, optional) - Call Reasons
+    + instructions (string, optional) - Instructions
+    + recomendations (string, optional) - Recomendations
+    + signature (string, optional) - signature file
     + materials (array, optional)
         + deduction (float)
         + discount (float)
@@ -368,6 +372,24 @@ Powell Portal REST API.
         + tax (number)
         + price (float)
         + work_completed (string)
+    + sticker (bool, optional) -[0 | 1]
+    + serv_tag (bool, optional) -[0 | 1]
+    + leaks (bool, optional) -[0 | 1]
+    + kitchen (bool, optional) -[0 | 1]
+    + bypass (bool, optional) -[0 | 1]
+    + dirty_water (bool, optional) -[0 | 1]
+    + chlor (bool, optional) -[0 | 1]
+    + sa_sold_ni (bool, optional) -[0 | 1]
+    + bpc (bool, optional) -[0 | 1]
+    + call_office (bool, optional) -[0 | 1]
+    + equipment_location (string, optional)
+    + equipment_tank (string, optional)
+    + equipment_pump (string, optional)
+    + equipment_bulb (string, optional)
+    + equipment_filter_type (string, optional)
+    + equipment_other (string, optional)
+    + equipment_contract_exp (string, optional)
+    + equipment_bpc (string, optional)
 
 + Request (application/json)
     
@@ -388,6 +410,10 @@ Powell Portal REST API.
                 "arrival_time": "08:10",
                 "finish_time": "14:30",
                 "special_notes": "lorem ipsum dolor",
+                "call_reasons": "lorem ipsum dolor",
+                "instructions": "lorem ipsum dolor",
+                "recomendations": "lorem ipsum dolor",
+                "signature": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAAA9CAIAAADd6vtGAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAB3RJTUUH4gIMFS8h49a1WQAABTRJREFUeNrtmz2bsyoQhmdzbSOUYDtttIw1/36tTZmkpVVLSHsKjUEDCOpu8l5Hy2zCx83M43ywXz8/P7A/7uewI9gB7YB2QDugHdA/+3z/yqgUixOSyYdaniup/t+AeC4y1rEoS/VKTQgC7bW8NP8OoK+NAsXOZgI2T7E48eZvbOlxXvYn7KS2AMRzkSUx/sNzgar/vtUbYbl3mlD8CHguMjY78lpAPBcZRDpNEJNIYsOYkR5MERMpm1/SIJ6LtC7LZolCJblIa8de/K4BAEDwJHBC7FX1Ap4E4P5LLsY9O7SbzPhwKRaoq7DTXmJzc6bUncKswS0EFEyHYnFCsDp6BOHtfTTYF5e4GMUiaGe9eLtMv6nbLOXQNNGzH+H2MmggtOgg43sBHoTb7CS9eM/pU0IogIqyHLs5gpJVKT8iUFTyoub3QWW4eMfEEouU+KNSjS7GKS9h+yA0CbAgnouMtdeyekMEvnmqkdah+6AkAd3cgwRZy/Ob8pMNs/lQ7R70hxIIpfO+LPewnfEcA7Tb/EHKAO5azUdPb60BHLbCk9Zx++ApA2jrZibUaa9vTv0PW+GJ3AdPGYBWd9eAj8Tq7ZWRwxbaQ2LxUEQGoJtW2Y2ny8Q+AM8GgCgitJH74IgEoJU2n3wYz2fgWQ+IJlpGamhvPrYiw2A8n4JndRzEGbnLSDxHl/n0f/pLPEZhxZGlrbMgCrpVS/BYADzxaG8FK5qAEAVSxx+N4qPjSFYBooxA1Ks9PyEBa1Q8SI9LmxaGrhlzDhiC5y/7Yv1qtbzZSkMha42e8OiJpDolnLfYvwI0GE/lxbOhd3F0WevIn+0nthkgSmi4FNqTBuMoN/Qu4Km7YxGOZ+VbTLUKGQWl5uG4FmusNdB8RhV9Z4GQE+Xqe4zrLc/qv32J617zStYocu5K4WfgTPH4z/KZnZXl5Tl+ga+DUywyKsvpWruSowEqpEywth7UXM6kECIdn+SwCO8STDxe7xqMZtIXIYmt5MbzI9yudTI356x3bVQwU7IqWyyEyMxPtTyX/ulHeJze9XSoKev+95OEl2KR1tVFcWS2aneX5MTo3TYVxfiK+QTPzZ6WDWrzSufRSJXjj4eGArUUc5dEE++5H2SEheBKOwonHZ4La5uZ50d4DsVSvizy+Q0LisVjNpYtZzl64YyCg8GobM35tK7MXgFDpM3wnWjxiQEUprlRAbUHj2leQ6DnvJxgNPynzQLCGZVdDGJ6tFV8OOeNtYX5HeUPBJHLNanA2LfseJ78tLxpFMJ3Jcu7tIGQqc3WPLlItaMX8z1/4ghtC4xtlo15gzyeGngkHNN6iHrmYFvq2x2hxJ/K+FvFs4ASeq+lShgjrlUE0xkJsz0EfvLR8iYb5dZSM0N59fzHOIQzDpx53pYUEXy94iANUrK60uelsLV0PJE1SQKjlM5pXMGWYYf+yIfnR5CVWiPSd5Ugh6a5LG61j5KnQJmfsVSeZ8xJZ2RchBCf3k1efEsAqbZJjub7cjmc8KsnXj48F5jo9upY0TgE1bpD9Co+fVywPlBU8tbwU84XuJUwC75lAB3VNho8/TKgWIi0LivZOL4yUu72euunnHaYuktGW12gUrI6YyEEBkZBkzgv5saSkrLFjFnvfPQXiLuLIxrwtc5isVeeApAJn45OoJ7GXMEb6l6lo0oX8p4KnGakVbY7DJNdjic35p5euoqiA4vuKPruoG51jX48h0PZLSUw6/yj78UmA1/7v2R+Yja/A9oB7YD2Zwe0A9oB7YB2QB///AfYCdL+csYlEgAAAABJRU5ErkJggg==",
                 "materials": [
                     {
                         "deduction": 1.10,
@@ -418,7 +444,26 @@ Powell Portal REST API.
                         "price": 100.20,
                         "work_completed": "lorem ipsum dolor"
                     }
-                ]
+                ],
+                "sticker": 0,
+                "serv_tag": 1,
+                "leaks": 1,
+                "kitchen": 0,
+                "bypass": 1,
+                "dirty_water": 1,
+                "chlor": 1,
+                "sa_sold_ni": 0,
+                "bpc": 0,
+                "call_office": 0,
+                "equipment_location": "lorem ipsum dolor",
+                "equipment_tank": "lorem ipsum dolor",
+                "equipment_pump": "lorem ipsum dolor",
+                "equipment_bulb": "lorem ipsum dolor",
+                "equipment_filter_type": "lorem ipsum dolor",
+                "equipment_other": "lorem ipsum dolor",
+                "equipment_contract_exp": "lorem ipsum dolor",
+                "equipment_bpc": "lorem ipsum dolor",
+                
             }
 
 + Response 201 (application/json)
