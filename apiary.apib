@@ -488,9 +488,10 @@ Powell Portal REST API.
         }
 
 
-### Edit job sheet [POST /Api/1/Job/edit_job_sheet/$job_id]
+### Edit job sheet [POST /Api/1/Job/edit_job_sheet/{job_id}]
 
     + Params
+    + job_id (integer) - ID of the Job *required integer
 
     + customer_id (number) - The customr id
     + job_type (number) - Job type id
