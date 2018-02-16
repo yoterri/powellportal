@@ -373,24 +373,28 @@ Powell Portal REST API.
         + tax (number)
         + price (float)
         + work_completed (string)
-    + sticker (bool, optional) -[0 | 1]
-    + serv_tag (bool, optional) -[0 | 1]
-    + leaks (bool, optional) -[0 | 1]
-    + kitchen (bool, optional) -[0 | 1]
-    + bypass (bool, optional) -[0 | 1]
-    + dirty_water (bool, optional) -[0 | 1]
-    + chlor (bool, optional) -[0 | 1]
-    + sa_sold_ni (bool, optional) -[0 | 1]
-    + bpc (bool, optional) -[0 | 1]
-    + call_office (bool, optional) -[0 | 1]
-    + equipment_location (string, optional)
-    + equipment_tank (string, optional)
-    + equipment_pump (string, optional)
-    + equipment_bulb (string, optional)
-    + equipment_filter_type (string, optional)
-    + equipment_other (string, optional)
-    + equipment_contract_exp (string, optional)
-    + equipment_bpc (string, optional)
+
+    + tags (array, optional)
+        + sticker (bool, optional)
+        + serv_tag (bool, optional)
+        + leaks (bool, optional)
+        + kitchen (bool, optional)
+        + bypass (bool, optional)
+        + dirty_water (bool, optional)
+        + chlor (bool, optional)
+        + sa_sold_ni (bool, optional)
+        + bpc (bool, optional)
+        + call_office (bool, optional)
+        
+    + equipment (array, optional)
+        + location (string, optional)
+        + tank (string, optional)
+        + pump (string, optional)
+        + bulb (string, optional)
+        + filter_type (string, optional)
+        + other (string, optional)
+        + contract_exp (string, optional)
+        + bpc (string, optional)
 
 + Request (application/json)
     
@@ -446,25 +450,32 @@ Powell Portal REST API.
                         "work_completed": "lorem ipsum dolor"
                     }
                 ],
-                "sticker": 0,
-                "serv_tag": 1,
-                "leaks": 1,
-                "kitchen": 0,
-                "bypass": 1,
-                "dirty_water": 1,
-                "chlor": 1,
-                "sa_sold_ni": 0,
-                "bpc": 0,
-                "call_office": 0,
-                "equipment_location": "lorem ipsum dolor",
-                "equipment_tank": "lorem ipsum dolor",
-                "equipment_pump": "lorem ipsum dolor",
-                "equipment_bulb": "lorem ipsum dolor",
-                "equipment_filter_type": "lorem ipsum dolor",
-                "equipment_other": "lorem ipsum dolor",
-                "equipment_contract_exp": "lorem ipsum dolor",
-                "equipment_bpc": "lorem ipsum dolor",
-                
+                "tags": {
+                        "sticker": true,
+                        "serv_tag": true,
+                        "leaks": true,
+                        "kitchen": true,
+                        "bypass": false,
+                        "dirty_water": false,
+                        "chlor": false,
+                        "sa_sold_ni": false,
+                        "bpc": false,
+                        "call_office": false
+                      },
+                "equipment": {
+                        "location": "Depth of 40 meters/Low Flow/Located Out Back",
+                        "tank": "Installed on 11/22/1993",
+                        "pump": "Pump1/Set1/Pipe1/Date Installed 11/22/1993",
+                        "conditioning": "Conditioning1",
+                        "filter": "None",
+                        "serviced": "11/22/2015",
+                        "model": "P132",
+                        "bulb": "Bulb #1/Length1/Plns1/Qtz #1/Selenoid1",
+                        "filter_type": "RO Make1/Filter Type1",
+                        "other": "Other1",
+                        "contract_exp": "5/31/2018",
+                        "bpc": "BPC1"
+                      }
             }
 
 + Response 201 (application/json)
@@ -476,6 +487,151 @@ Powell Portal REST API.
             }
         }
 
+
+### Edit job sheet [POST /Api/1/Job/edit_job_sheet/$job_id]
+
+    + Params
+
+    + customer_id (number) - The customr id
+    + job_type (number) - Job type id
+    + job_status (number) - Job status id
+    + p_tech (number, optional) - technician id
+    + o_tech (array[number], optional) - ID of other Technicians
+    + call_reasons (string, optional) - the reason for the call
+    + job_date (string, optional) - date for the job in the format yyyy-mm-dd
+    + arrival_time (string, optional) - time in the format hh:mm
+    + finish_time (string, optional) - time in the format hh:mm
+    + special_notes (string, optional) - Special Order Notes
+    + call_reasons  (string, optional) - Call Reasons
+    + instructions (string, optional) - Instructions
+    + recomendations (string, optional) - Recomendations
+    + signature (string, optional) - data:image base64
+    + materials (array, optional)
+        + deduction (float)
+        + discount (float)
+        + material_id (number)
+        + quantity (number)
+        + price (float)
+
+    + labors (array, optional)
+        + deduction (float)
+        + discount (float)
+        + tax (number)
+        + price (float)
+        + work_completed (string)
+
+    + tags (array, optional)
+        + sticker (bool, optional)
+        + serv_tag (bool, optional)
+        + leaks (bool, optional)
+        + kitchen (bool, optional)
+        + bypass (bool, optional)
+        + dirty_water (bool, optional)
+        + chlor (bool, optional)
+        + sa_sold_ni (bool, optional)
+        + bpc (bool, optional)
+        + call_office (bool, optional)
+
+    + equipment (array, optional)
+        + location (string, optional)
+        + tank (string, optional)
+        + pump (string, optional)
+        + bulb (string, optional)
+        + filter_type (string, optional)
+        + other (string, optional)
+        + contract_exp (string, optional)
+        + bpc (string, optional)
+
++ Request (application/json)
+    
+    + Headers
+
+                Authorization: Bearer token
+            
+    + Body
+
+            {
+                "customer_id": 1,
+                "job_type": 1,
+                "job_status": 1,
+                "p_tech": 1,
+                "o_tech": [1, 2],
+                "call_reasons": "lorem ipsum dolor",
+                "job_date": "2018-12-31",
+                "arrival_time": "08:10",
+                "finish_time": "14:30",
+                "special_notes": "lorem ipsum dolor",
+                "call_reasons": "lorem ipsum dolor",
+                "instructions": "lorem ipsum dolor",
+                "recomendations": "lorem ipsum dolor",
+                "signature": "data:image base64",
+                "materials": [
+                    {
+                        "deduction": 1.10,
+                        "discount": 1.10,
+                        "material_id": 1,
+                        "quantity": 1,
+                        "price": 100.20
+                    },
+                    {
+                        "deduction": 1.10,
+                        "discount": 1.10,
+                        "material_id": 2,
+                        "price": 100.20
+                    }
+                ],
+                "labors": [
+                    {
+                        "deduction": 1.00,
+                        "discount": 1.10,
+                        "tax": 1,
+                        "price": 100.20,
+                        "work_completed": "lorem ipsum dolor"
+                    },
+                    {
+                        "deduction": 1.10,
+                        "discount": 1.00,
+                        "tax": 1,
+                        "price": 100.20,
+                        "work_completed": "lorem ipsum dolor"
+                    }
+                ],
+                "tags": {
+                        "sticker": true,
+                        "serv_tag": true,
+                        "leaks": true,
+                        "kitchen": true,
+                        "bypass": false,
+                        "dirty_water": false,
+                        "chlor": false,
+                        "sa_sold_ni": false,
+                        "bpc": false,
+                        "call_office": false
+                      },
+                "equipment": {
+                        "location": "Depth of 40 meters/Low Flow/Located Out Back",
+                        "tank": "Installed on 11/22/1993",
+                        "pump": "Pump1/Set1/Pipe1/Date Installed 11/22/1993",
+                        "conditioning": "Conditioning1",
+                        "filter": "None",
+                        "serviced": "11/22/2015",
+                        "model": "P132",
+                        "bulb": "Bulb #1/Length1/Plns1/Qtz #1/Selenoid1",
+                        "filter_type": "RO Make1/Filter Type1",
+                        "other": "Other1",
+                        "contract_exp": "5/31/2018",
+                        "bpc": "BPC1"
+                      }
+            }
+
++ Response 201 (application/json)
+
+        {
+            "status": true,
+            "data": {
+                "id": 44
+            }
+        }
 
 
 ### Quick add job [POST /Api/1/Job/quick_add_job]
