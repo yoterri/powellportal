@@ -76,7 +76,7 @@ Powell Portal REST API.
         ]
 
 
-### Get all Jobs with status "Scheduled" [GET]
+### Get all Jobs with status "Scheduled" or "Open" [GET]
 
 + Request (text/plain)
     + Headers
@@ -230,7 +230,9 @@ Powell Portal REST API.
                     "price": "326",
                     "deduction": "0",
                     "job_id": "12",
-                    "subtotal": "374.90"
+                    "subtotal": "374.90",
+                    "time_start": "1520510400",
+                    "time_end": "1520517600"
                 },
                 {
                     "id": "94",
@@ -240,7 +242,9 @@ Powell Portal REST API.
                     "price": "123",
                     "deduction": "0",
                     "job_id": "12",
-                    "subtotal": "130.38"
+                    "subtotal": "130.38",
+                    "time_start": "1520510400",
+                    "time_end": "1520517600"
                 }
             ],
             "job_materials": [
@@ -373,6 +377,8 @@ Powell Portal REST API.
         + tax (number)
         + price (float)
         + work_completed (string)
+        + time_start (bigint)
+        + time_end (bigint)
 
     + tags (array, optional)
         + sticker (bool, optional)
@@ -519,6 +525,155 @@ Powell Portal REST API.
         + tax (number)
         + price (float)
         + work_completed (string)
+        + time_start (bigint)
+        + time_end (bigint)
+
+    + tags (array, optional)
+        + sticker (bool, optional)
+        + serv_tag (bool, optional)
+        + leaks (bool, optional)
+        + kitchen (bool, optional)
+        + bypass (bool, optional)
+        + dirty_water (bool, optional)
+        + chlor (bool, optional)
+        + sa_sold_ni (bool, optional)
+        + bpc (bool, optional)
+        + call_office (bool, optional)
+
+    + equipment (array, optional)
+        + location (string, optional)
+        + tank (string, optional)
+        + pump (string, optional)
+        + bulb (string, optional)
+        + filter_type (string, optional)
+        + other (string, optional)
+        + contract_exp (string, optional)
+        + bpc (string, optional)
+
++ Request (application/json)
+    
+    + Headers
+
+                Authorization: Bearer token
+            
+    + Body
+
+            {
+                "customer_id": 1,
+                "job_type": 1,
+                "job_status": 1,
+                "p_tech": 1,
+                "o_tech": [1, 2],
+                "call_reasons": "lorem ipsum dolor",
+                "job_date": "2018-12-31",
+                "arrival_time": "08:10",
+                "finish_time": "14:30",
+                "special_notes": "lorem ipsum dolor",
+                "call_reasons": "lorem ipsum dolor",
+                "instructions": "lorem ipsum dolor",
+                "recomendations": "lorem ipsum dolor",
+                "signature": "data:image base64",
+                "materials": [
+                    {
+                        "deduction": 1.10,
+                        "discount": 1.10,
+                        "material_id": 1,
+                        "quantity": 1,
+                        "price": 100.20
+                    },
+                    {
+                        "deduction": 1.10,
+                        "discount": 1.10,
+                        "material_id": 2,
+                        "price": 100.20
+                    }
+                ],
+                "labors": [
+                    {
+                        "deduction": 1.00,
+                        "discount": 1.10,
+                        "tax": 1,
+                        "price": 100.20,
+                        "work_completed": "lorem ipsum dolor"
+                    },
+                    {
+                        "deduction": 1.10,
+                        "discount": 1.00,
+                        "tax": 1,
+                        "price": 100.20,
+                        "work_completed": "lorem ipsum dolor"
+                    }
+                ],
+                "tags": {
+                        "sticker": true,
+                        "serv_tag": true,
+                        "leaks": true,
+                        "kitchen": true,
+                        "bypass": false,
+                        "dirty_water": false,
+                        "chlor": false,
+                        "sa_sold_ni": false,
+                        "bpc": false,
+                        "call_office": false
+                      },
+                "equipment": {
+                        "location": "Depth of 40 meters/Low Flow/Located Out Back",
+                        "tank": "Installed on 11/22/1993",
+                        "pump": "Pump1/Set1/Pipe1/Date Installed 11/22/1993",
+                        "conditioning": "Conditioning1",
+                        "filter": "None",
+                        "serviced": "11/22/2015",
+                        "model": "P132",
+                        "bulb": "Bulb #1/Length1/Plns1/Qtz #1/Selenoid1",
+                        "filter_type": "RO Make1/Filter Type1",
+                        "other": "Other1",
+                        "contract_exp": "5/31/2018",
+                        "bpc": "BPC1"
+                      }
+            }
+
++ Response 201 (application/json)
+
+        {
+            "status": true,
+            "data": {
+                "id": 44
+            }
+        }
+
+
+### Pause Edit job sheet [POST /Api/1/Job/pause_tracker/{job_id}]
+
+    + Params
+    + job_id (integer) - ID of the Job *required integer
+
+    + customer_id (number optional) - The customr id
+    + job_type (number optional) - Job type id    
+    + p_tech (number, optional) - technician id
+    + o_tech (array[number], optional) - ID of other Technicians
+    + call_reasons (string, optional) - the reason for the call
+    + time_start (timestamp, optional) - Timestamp when technician start stop required 
+    + time_end (timestamp, optional) - Timestamp when technician end stop required
+    + special_notes (string, optional) - Special Order Notes
+    + call_reasons  (string, optional) - Call Reasons
+    + instructions (string, optional) - Instructions
+    + recomendations (string, optional) - Recomendations
+    + signature (string, optional) - data:image base64
+    + materials (array, optional)
+        + deduction (float)
+        + discount (float)
+        + material_id (number)
+        + quantity (number)
+        + price (float)
+
+    + labors (array, optional)
+        + deduction (float)
+        + discount (float)
+        + tax (number)
+        + price (float)
+        + work_completed (string)
+        + time_start (bigint)
+        + time_end (bigint)
 
     + tags (array, optional)
         + sticker (bool, optional)
