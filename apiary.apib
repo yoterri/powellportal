@@ -493,6 +493,23 @@ Powell Portal REST API.
             }
         }
 
+### Start tracking for job [GET /Api/1/Job/start_tracker/{job_id}]
+
+    + Params
+
+    + job_id (integer) - ID of the Job *required integer
+
+    + Request (text/plain)
+
+        + Headers
+
+                Authorization: Bearer token
+                
+    + Response 200 (application/json)
+        {
+            "status":true
+        }
+
 
 ### Edit job sheet [POST /Api/1/Job/edit_job_sheet/{job_id}]
 
@@ -642,7 +659,7 @@ Powell Portal REST API.
         }
 
 
-### Pause Edit job sheet [POST /Api/1/Job/pause_tracker/{job_id}]
+### Pause job sheet [POST /Api/1/Job/pause_tracker/{job_id}]
 
     + Params
     + job_id (integer) - ID of the Job *required integer
@@ -782,10 +799,7 @@ Powell Portal REST API.
 + Response 201 (application/json)
 
         {
-            "status": true,
-            "data": {
-                "id": 44
-            }
+            "status": true
         }
 
 
