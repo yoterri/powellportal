@@ -296,7 +296,7 @@ Powell Portal REST API.
                 "proposals": "",
                 "pca": "1",
                 "pca_exp_date": "1970-01-01",
-                "clone_add_date": "1",
+                "clone_id": "120",
                 "id": "5",
                 "location": "fgsd",
                 "tank": "dsfgsd",
@@ -519,11 +519,11 @@ Powell Portal REST API.
     + customer_id (number) - The customr id
     + job_type (number) - Job type id
     + job_status (number) - Job status id
-    + p_tech (number, optional) - technician id
+    + p_tech (number) - technician id
     + o_tech (array[number], optional) - ID of other Technicians
     + call_reasons (string, optional) - the reason for the call
-    + time_start (timestamp, optional) - Timestamp when technician start stop required 
-    + time_end (timestamp, optional) - Timestamp when technician end stop required
+    + time_start (timestamp) - Timestamp when technician start stop required 
+    + time_end (timestamp) - Timestamp when technician end stop required
     + special_notes (string, optional) - Special Order Notes
     + call_reasons  (string, optional) - Call Reasons
     + instructions (string, optional) - Instructions
@@ -536,7 +536,7 @@ Powell Portal REST API.
         + quantity (number)
         + price (float)
 
-    + labors (array, optional)
+    + labors (array)
         + deduction (float)
         + discount (float)
         + tax (number)
@@ -663,14 +663,14 @@ Powell Portal REST API.
 
     + Params
     + job_id (integer) - ID of the Job *required integer
+    + time_start (timestamp) - Timestamp when technician start stop required 
+    + time_end (timestamp) - Timestamp when technician end stop required
 
     + customer_id (number optional) - The customr id
     + job_type (number optional) - Job type id    
     + p_tech (number, optional) - technician id
     + o_tech (array[number], optional) - ID of other Technicians
-    + call_reasons (string, optional) - the reason for the call
-    + time_start (timestamp, optional) - Timestamp when technician start stop required 
-    + time_end (timestamp, optional) - Timestamp when technician end stop required
+    + call_reasons (string, optional) - the reason for the call    
     + special_notes (string, optional) - Special Order Notes
     + call_reasons  (string, optional) - Call Reasons
     + instructions (string, optional) - Instructions
