@@ -498,9 +498,8 @@ Powell Portal REST API.
 ### Start tracking for job [GET /Api/1/Job/start_tracker/{job_id}]
 
     + Params
-
     + job_id (integer) - ID of the Job *required integer
-
+    + time_start (timestamp optional) - Timestamp when technician starts 
     + Request (text/plain)
 
         + Headers
@@ -517,7 +516,6 @@ Powell Portal REST API.
 
     + Params
     + job_id (integer) - ID of the Job *required integer
-
     + customer_id (number) - The customr id
     + job_type (number) - Job type id
     + job_status (number) - Job status id
@@ -665,9 +663,7 @@ Powell Portal REST API.
 
     + Params
     + job_id (integer) - ID of the Job *required integer
-    + time_start (timestamp) - Timestamp when technician start stop required 
-    + time_end (timestamp) - Timestamp when technician end stop required
-
+    + time_end (timestamp optional) - Timestamp when technician ends
     + customer_id (number optional) - The customr id
     + job_type (number optional) - Job type id    
     + p_tech (number, optional) - technician id
