@@ -234,7 +234,8 @@ Powell Portal REST API.
                     "job_id": "12",
                     "subtotal": "374.90",
                     "time_start": "1520510400",
-                    "time_end": "1520517600"
+                    "time_end": "1520517600",
+                    "tax_amount": 0
                 },
                 {
                     "id": "94",
@@ -246,7 +247,8 @@ Powell Portal REST API.
                     "job_id": "12",
                     "subtotal": "130.38",
                     "time_start": "1520510400",
-                    "time_end": "1520517600"
+                    "time_end": "1520517600",
+                    "tax_amount": 0
                 }
             ],
             "job_materials": [
@@ -260,6 +262,7 @@ Powell Portal REST API.
                     "job_id": "12",
                     "product_name": "werwerwer",
                     "subtotal": "123.33"
+                    "tax_amount": 0
                 },
                 {
                     "id": "117",
@@ -271,6 +274,7 @@ Powell Portal REST API.
                     "job_id": "12",
                     "product_name": "werwerwer",
                     "subtotal": "123.33"
+                    "tax_amount": 0
                 }
             ],
             "job_eq_changes": null,
@@ -367,16 +371,17 @@ Powell Portal REST API.
     + recomendations (string, optional) - Recomendations
     + signature (string, optional) - data:image base64
     + materials (array, optional)
-        + deduction (float)
+        + deduction (float) - Deduction percent
         + discount (float)
+        + tax (number) - Tax percent
         + material_id (number)
         + quantity (number)
         + price (float)
 
     + labors (array, optional)
-        + deduction (float)
+        + deduction (float) - Deduction percent
         + discount (float)
-        + tax (number)
+        + tax (number) - Tax percent
         + price (float)
         + work_completed (string)
         + time_start (bigint)
@@ -429,14 +434,16 @@ Powell Portal REST API.
                 "signature": "data:image base64",
                 "materials": [
                     {
-                        "deduction": 1.10,
+                        "deduction": 10,
+                        "tax": 6,
                         "discount": 1.10,
                         "material_id": 1,
                         "quantity": 1,
                         "price": 100.20
                     },
                     {
-                        "deduction": 1.10,
+                        "deduction": 10,
+                        "tax": 6,
                         "discount": 1.10,
                         "material_id": 2,
                         "price": 100.20
@@ -444,16 +451,16 @@ Powell Portal REST API.
                 ],
                 "labors": [
                     {
-                        "deduction": 1.00,
+                        "deduction": 10,
                         "discount": 1.10,
-                        "tax": 1,
+                        "tax": 6,
                         "price": 100.20,
                         "work_completed": "lorem ipsum dolor"
                     },
                     {
-                        "deduction": 1.10,
+                        "deduction": 10,
                         "discount": 1.00,
-                        "tax": 1,
+                        "tax": 6,
                         "price": 100.20,
                         "work_completed": "lorem ipsum dolor"
                     }
@@ -530,16 +537,17 @@ Powell Portal REST API.
     + recomendations (string, optional) - Recomendations
     + signature (string, optional) - data:image base64
     + materials (array, optional)
-        + deduction (float)
+        + deduction (float) - Deduction percent
+        + tax (number) - Tax percent
         + discount (float)
         + material_id (number)
         + quantity (number)
         + price (float)
 
     + labors (array)
-        + deduction (float)
+        + deduction (float) - Tax percent
         + discount (float)
-        + tax (number)
+        + tax (number)  - Tax percent
         + price (float)
         + work_completed (string)
         + time_start (bigint)
@@ -592,14 +600,16 @@ Powell Portal REST API.
                 "signature": "data:image base64",
                 "materials": [
                     {
-                        "deduction": 1.10,
+                        "deduction": 10,
+                        "tax": 6,
                         "discount": 1.10,
                         "material_id": 1,
                         "quantity": 1,
                         "price": 100.20
                     },
                     {
-                        "deduction": 1.10,
+                        "deduction": 10,
+                        "tax": 6,
                         "discount": 1.10,
                         "material_id": 2,
                         "price": 100.20
@@ -607,16 +617,16 @@ Powell Portal REST API.
                 ],
                 "labors": [
                     {
-                        "deduction": 1.00,
+                        "deduction": 10,
                         "discount": 1.10,
-                        "tax": 1,
+                        "tax": 6,
                         "price": 100.20,
                         "work_completed": "lorem ipsum dolor"
                     },
                     {
-                        "deduction": 1.10,
+                        "deduction": 10,
                         "discount": 1.00,
-                        "tax": 1,
+                        "tax": 6,
                         "price": 100.20,
                         "work_completed": "lorem ipsum dolor"
                     }
@@ -675,16 +685,17 @@ Powell Portal REST API.
     + recomendations (string, optional) - Recomendations
     + signature (string, optional) - data:image base64
     + materials (array, optional)
-        + deduction (float)
+        + deduction (float) - Deduction percent
+        + tax (number)  - Tax percent
         + discount (float)
         + material_id (number)
         + quantity (number)
         + price (float)
 
     + labors (array, optional)
-        + deduction (float)
+        + deduction (float) - Deduction percent
         + discount (float)
-        + tax (number)
+        + tax (number) - Tax percent
         + price (float)
         + work_completed (string)
         + time_start (bigint)
@@ -737,8 +748,9 @@ Powell Portal REST API.
                 "signature": "data:image base64",
                 "materials": [
                     {
-                        "deduction": 1.10,
+                        "deduction": 10,
                         "discount": 1.10,
+                        "tax": 6,
                         "material_id": 1,
                         "quantity": 1,
                         "price": 100.20
@@ -746,6 +758,7 @@ Powell Portal REST API.
                     {
                         "deduction": 1.10,
                         "discount": 1.10,
+                        "tax": 6,
                         "material_id": 2,
                         "price": 100.20
                     }
@@ -754,7 +767,7 @@ Powell Portal REST API.
                     {
                         "deduction": 1.00,
                         "discount": 1.10,
-                        "tax": 1,
+                        "tax": 6,
                         "price": 100.20,
                         "work_completed": "lorem ipsum dolor"
                     },
