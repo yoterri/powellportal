@@ -1273,6 +1273,49 @@ Powell Portal REST API.
             "percent": "50"
         }
 
+
+## Deductions Collection [Api/1/Deductions]
+
+### Get All Deductions [GET]
+
++ Request (text/plain)
+    + Headers
+
+            Authorization: Bearer token
+            
++ Response 200 (application/json)
+
+        [
+            {
+                "id": "1",
+                "name": "Discount-10",
+                "percent": "10"
+            },
+            {
+                "id": "2",
+                "name": "Discount-10",
+                "percent": "10"
+            }
+        ]
+
+### Get Deduction [GET /Api/1/Taxs/{tax_id}]
+
++ Parameters
+    + deductions_id (integer) - ID of the Deduction required integer
+
++ Request (text/plain)
+    + Headers
+
+        Authorization: Bearer token
+            
++ Response 200 (application/json)    
+
+        {
+            "id": "1",
+            "name": "Discount-10",
+            "percent": "10"
+        }
+
         
 ## Technicians Collection [/Api/1/Technicians]      
 
