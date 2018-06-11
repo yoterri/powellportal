@@ -1229,6 +1229,50 @@ Powell Portal REST API.
             "add_email": "",
             "add_phone": ""
         }
+
+
+## Taxes Collection [/Api/1/Taxs]
+
+### Get All Taxs [GET]
+
++ Request (text/plain)
+    + Headers
+
+            Authorization: Bearer token
+            
++ Response 200 (application/json)
+
+        [
+             {
+                "id": "2",
+                "name": "Discount-5%",
+                "percent": "5"
+            },
+            {
+                "id": "4",
+                "name": "Tax-50%",
+                "percent": "50"
+            }
+        ]
+
+### Get Tax [GET /Api/1/Taxs/{tax_id}]
+
++ Parameters
+    + tax_id (integer) - ID of the Tax required integer
+
++ Request (text/plain)
+    + Headers
+
+        Authorization: Bearer token
+            
++ Response 200 (application/json)    
+
+        {
+            "id": "4",
+            "name": "Tax-50%",
+            "percent": "50"
+        }
+
         
 ## Technicians Collection [/Api/1/Technicians]      
 
