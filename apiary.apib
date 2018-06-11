@@ -379,9 +379,6 @@ Powell Portal REST API.
     + recomendations (string, optional) - Recomendations
     + signature (string, optional) - data:image base64
     + materials (array, optional)
-        + deduction (float) - Deduction percent
-        + discount (float)
-        + tax (number) - Tax percent
         + material_id (number)
         + quantity (number)
         + price (float)
@@ -389,9 +386,6 @@ Powell Portal REST API.
         + deduction_id (number)
 
     + labors (array, optional)
-        + deduction (float) - Deduction percent
-        + discount (float)
-        + tax (number) - Tax percent
         + price (float)
         + work_completed (string)
         + time_start (bigint)
@@ -557,9 +551,6 @@ Powell Portal REST API.
     + recomendations (string, optional) - Recomendations
     + signature (string, optional) - data:image base64
     + materials (array, optional)
-        + deduction (float) - Deduction percent
-        + tax (number) - Tax percent
-        + discount (float)
         + material_id (number)
         + quantity (number)
         + price (float)
@@ -567,9 +558,6 @@ Powell Portal REST API.
         + deduction_id (number)
 
     + labors (array)
-        + deduction (float) - Tax percent
-        + discount (float)
-        + tax (number)  - Tax percent
         + price (float)
         + work_completed (string)
         + time_start (bigint)
@@ -717,9 +705,6 @@ Powell Portal REST API.
     + recomendations (string, optional) - Recomendations
     + signature (string, optional) - data:image base64
     + materials (array, optional)
-        + deduction (float) - Deduction percent
-        + tax (number)  - Tax percent
-        + discount (float)
         + material_id (number)
         + quantity (number)
         + price (float)
@@ -727,9 +712,6 @@ Powell Portal REST API.
         + deduction_id (number)
 
     + labors (array, optional)
-        + deduction (float) - Deduction percent
-        + discount (float)
-        + tax (number) - Tax percent
         + price (float)
         + work_completed (string)
         + time_start (bigint)
@@ -1231,9 +1213,9 @@ Powell Portal REST API.
         }
 
 
-## Taxes Collection [/Api/1/Taxs]
+## Taxes Collection [/Api/1/Taxes]
 
-### Get All Taxs [GET]
+### Get All Taxes [GET]
 
 + Request (text/plain)
     + Headers
@@ -1255,7 +1237,7 @@ Powell Portal REST API.
             }
         ]
 
-### Get Tax [GET /Api/1/Taxs/{tax_id}]
+### Get Tax [GET /Api/1/Taxes/{tax_id}]
 
 + Parameters
     + tax_id (integer) - ID of the Tax required integer
@@ -1298,7 +1280,7 @@ Powell Portal REST API.
             }
         ]
 
-### Get Deduction [GET /Api/1/Taxs/{tax_id}]
+### Get Deduction [GET /Api/1/Taxes/{tax_id}]
 
 + Parameters
     + deductions_id (integer) - ID of the Deduction required integer
