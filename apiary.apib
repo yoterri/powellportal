@@ -223,38 +223,6 @@ Powell Portal REST API.
                 "tracker_started": true,
                 "tracker_time_start": 1520510400
             },
-            "job_labors": [
-                {
-                    "id": "93",
-                    "work_name": "dfg sdf gsdsdf gsd",
-                    "tax": "15",
-                    "discount": "0",
-                    "price": "326",
-                    "deduction": "0",
-                    "job_id": "12",
-                    "subtotal": "374.90",
-                    "time_start": "1520510400",
-                    "time_end": "1520517600",
-                    "tax_id": "12",
-                    "deduction_id": "18",
-                    "tax_amount": 0
-                },
-                {
-                    "id": "94",
-                    "work_name": "dsadfa",
-                    "tax": "6",
-                    "discount": "0",
-                    "price": "123",
-                    "deduction": "0",
-                    "job_id": "12",
-                    "subtotal": "130.38",
-                    "time_start": "1520510400",
-                    "time_end": "1520517600",
-                    "tax_id": "12",
-                    "deduction_id": "18",
-                    "tax_amount": 0
-                }
-            ],
             "job_materials": [
                 {
                     "id": "116",
@@ -384,15 +352,6 @@ Powell Portal REST API.
         + price (float)
         + tax_id (number)
         + deduction_id (number)
-
-    + labors (array, optional)
-        + price (float)
-        + work_completed (string)
-        + time_start (bigint)
-        + time_end (bigint)
-        + tax_id (number)
-        + deduction_id (number)
-
     + tags (array, optional)
         + sticker (bool, optional)
         + serv_tag (bool, optional)
@@ -457,26 +416,6 @@ Powell Portal REST API.
                         "price": 100.20
                         "tax_id": 8,
                         "deduction_id": 23
-                    }
-                ],
-                "labors": [
-                    {
-                        "deduction": 10,
-                        "discount": 1.10,
-                        "tax": 6,
-                        "price": 100.20,
-                        "work_completed": "lorem ipsum dolor"
-                        "tax_id": 9,
-                        "deduction_id": 23
-                    },
-                    {
-                        "deduction": 10,
-                        "discount": 1.00,
-                        "tax": 6,
-                        "price": 100.20,
-                        "work_completed": "lorem ipsum dolor"
-                        "tax_id": 11,
-                        "deduction_id": 3
                     }
                 ],
                 "tags": {
@@ -557,13 +496,6 @@ Powell Portal REST API.
         + tax_id (number)
         + deduction_id (number)
 
-    + labors (array)
-        + price (float)
-        + work_completed (string)
-        + time_start (bigint)
-        + time_end (bigint)
-        + tax_id (number)
-        + deduction_id (number)
 
     + tags (array, optional)
         + sticker (bool, optional)
@@ -631,26 +563,6 @@ Powell Portal REST API.
                         "deduction_id": 2
                     }
                 ],
-                "labors": [
-                    {
-                        "deduction": 10,
-                        "discount": 1.10,
-                        "tax": 6,
-                        "price": 100.20,
-                        "work_completed": "lorem ipsum dolor",
-                        "tax_id": 4,
-                        "deduction_id": 2
-                    },
-                    {
-                        "deduction": 10,
-                        "discount": 1.00,
-                        "tax": 6,
-                        "price": 100.20,
-                        "work_completed": "lorem ipsum dolor",
-                        "tax_id": 4,
-                        "deduction_id": 2
-                    }
-                ],
                 "tags": {
                         "sticker": true,
                         "serv_tag": true,
@@ -708,14 +620,6 @@ Powell Portal REST API.
         + material_id (number)
         + quantity (number)
         + price (float)
-        + tax_id (number)
-        + deduction_id (number)
-
-    + labors (array, optional)
-        + price (float)
-        + work_completed (string)
-        + time_start (bigint)
-        + time_end (bigint)
         + tax_id (number)
         + deduction_id (number)
 
@@ -781,26 +685,6 @@ Powell Portal REST API.
                         "tax": 6,
                         "material_id": 2,
                         "price": 100.20,
-                        "tax_id": 13,
-                        "deduction_id": 14
-                    }
-                ],
-                "labors": [
-                    {
-                        "deduction": 1.00,
-                        "discount": 1.10,
-                        "tax": 6,
-                        "price": 100.20,
-                        "work_completed": "lorem ipsum dolor",
-                        "tax_id": 13,
-                        "deduction_id": 14
-                    },
-                    {
-                        "deduction": 1.10,
-                        "discount": 1.00,
-                        "tax": 1,
-                        "price": 100.20,
-                        "work_completed": "lorem ipsum dolor",
                         "tax_id": 13,
                         "deduction_id": 14
                     }
