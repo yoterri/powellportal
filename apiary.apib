@@ -747,6 +747,9 @@ Powell Portal REST API.
     + work_done (string, optional) - Work Done
     + special_notes (string, optional) - Special Order Notes
     + p_tech (number, optional) - technician id
+    + notes (array, optional)
+    
+            + note (string)
 
 + Request (application/json)
     
@@ -765,8 +768,7 @@ Powell Portal REST API.
                 "p_tech": 1,
                 "call_reasons": "lorem ipsum dolor",
                 "work_done": "lorem ipsum dolor",
-                "special_notes": "lorem ipsum dolor",
-                "notes": [{"note": ""},{"note": ""}]
+                "special_notes": "lorem ipsum dolor"
             }
 
 + Response 201 (application/json)
