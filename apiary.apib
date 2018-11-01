@@ -446,7 +446,7 @@ Powell Portal REST API.
                       }
             }
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
         {
             "status": true,
@@ -454,6 +454,9 @@ Powell Portal REST API.
                 "id": 44
             }
         }
+
+
+
 
 ### Start tracking for job [GET /Api/1/Job/start_tracker/{job_id}]
 
@@ -591,7 +594,7 @@ Powell Portal REST API.
                       }
             }
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
         {
             "status": true,
@@ -1129,7 +1132,7 @@ Powell Portal REST API.
 + Request (text/plain)
     + Headers
 
-        Authorization: Bearer token
+            Authorization: Bearer token
             
 + Response 200 (application/json)    
 
@@ -1140,9 +1143,9 @@ Powell Portal REST API.
         }
 
 
-## Deductions Collection [Api/1/Deductions]
+## Deductions Collection [/Api/1/Deductions]
 
-### Get All Deductions [GET]
+### Get All Deductions [GET /Api/1/Deductions]
 
 + Request (text/plain)
     + Headers
@@ -1164,7 +1167,7 @@ Powell Portal REST API.
             }
         ]
 
-### Get Deduction [GET /Api/1/Taxes/{tax_id}]
+### Get Deduction [GET /Api/1/Deductions/{deductions_id}]
 
 + Parameters
     + deductions_id (integer) - ID of the Deduction required integer
@@ -1172,7 +1175,7 @@ Powell Portal REST API.
 + Request (text/plain)
     + Headers
 
-        Authorization: Bearer token
+            Authorization: Bearer token
             
 + Response 200 (application/json)    
 
