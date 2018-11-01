@@ -352,6 +352,10 @@ Powell Portal REST API.
         + price (float)
         + tax_id (number)
         + deduction_id (number)
+    + notes (array, optional)
+    
+            + note (string)
+            
     + tags (array, optional)
         + sticker (bool, optional)
         + serv_tag (bool, optional)
@@ -498,8 +502,11 @@ Powell Portal REST API.
         + price (float)
         + tax_id (number)
         + deduction_id (number)
-
-
+        
+    + notes (array, optional)
+    
+            + note (string)
+            
     + tags (array, optional)
         + sticker (bool, optional)
         + serv_tag (bool, optional)
@@ -758,7 +765,8 @@ Powell Portal REST API.
                 "p_tech": 1,
                 "call_reasons": "lorem ipsum dolor",
                 "work_done": "lorem ipsum dolor",
-                "special_notes": "lorem ipsum dolor"
+                "special_notes": "lorem ipsum dolor",
+                "notes": [{"note": ""},{"note": ""}]
             }
 
 + Response 201 (application/json)
