@@ -323,7 +323,19 @@ Powell Portal REST API.
                 "id": "2",
                 "type_text": "Type 2",
                 "type_code": "type_2"
-            }
+            },
+            "job_notes": [
+                {
+                    "id": "25",
+                    "date": "2018-11-05",
+                    "note": "qe"
+                },
+                {
+                    "id": "24",
+                    "date": "2018-11-05",
+                    "note": "qe"
+                }
+            ]
         }
 
 
@@ -348,7 +360,7 @@ Powell Portal REST API.
     + signature (string, optional) - data:image base64
     + materials (array, optional)
         + material_id (number)
-        + quantity (number)
+        + quantity (float)
         + price (float)
         + tax_id (number)
         + deduction_id (number)
@@ -495,7 +507,7 @@ Powell Portal REST API.
     + signature (string, optional) - data:image base64
     + materials (array, optional)
         + material_id (number)
-        + quantity (number)
+        + quantity (float)
         + price (float)
         + tax_id (number)
         + deduction_id (number)
@@ -622,7 +634,7 @@ Powell Portal REST API.
     + notes (string, optional)
     + materials (array, optional)
         + material_id (number)
-        + quantity (number)
+        + quantity (float)
         + price (float)
         + tax_id (number)
         + deduction_id (number)
